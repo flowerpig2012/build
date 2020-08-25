@@ -25,7 +25,8 @@ func (this *Request) callRoot(writer *ResponseWriter) error {
 		this.root = Tea.Root + Tea.DS + this.root
 	}
 
-	requestPath := this.uri
+	// requestPath := this.uri
+	requestPath, _ := url.QueryUnescape(this.uri)
 	query := ""
 
 	questionMarkIndex := strings.Index(this.uri, "?")
